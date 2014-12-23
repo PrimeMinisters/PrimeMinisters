@@ -32,6 +32,12 @@ public class Writer extends IO
 	 */
 	public Attributes attributes()
 	{
+		if(this.table.attributes() == null)
+		{
+			System.out.println("ばーか");
+		}
+		System.out.println("[writer]:table"+this.table.attributes());
+		
 		return this.table.attributes();
 	}
 	
@@ -80,7 +86,10 @@ public class Writer extends IO
 	 */
 	public void writeAttributesOn(BufferedWriter outputWriter)
 	{
-        ArrayList<String> strings = attributes().names();
+		System.out.println("[writer]:デバック[1]");
+		ArrayList<String> strings = null;
+		strings = attributes().names();
+		System.out.println("[Writer]:attributesName:"+strings);
         try
         {
         	outputWriter.write("\t\t\t\t\t\t<tr>\n");
@@ -167,8 +176,10 @@ public class Writer extends IO
 	 */
 	public void writeTableBodyOn(BufferedWriter outputWriter)
 	{
-		//this.writeAttributesOn(outputWriter);
-		//this.writeTuplesOn(outputWriter);
+		System.out.println("[writer]:デバック");
+		this.writeAttributesOn(outputWriter);
+		System.out.println("[writer]:デバック");
+		this.writeTuplesOn(outputWriter);
 		return;
 	}
 	
@@ -184,7 +195,7 @@ public class Writer extends IO
 			for(Tuple aTuple : tuples)
 			{
 				outputWriter.write("\t\t\t\t\t\t<tr>\n");
-				ArrayList<String>values = aTuple.values();
+				ArrayList<String> values = aTuple.values();
 				
 				for(String aString : values){
 					if(index % 2 == 0)
@@ -198,6 +209,8 @@ public class Writer extends IO
 					outputWriter.write(aString);
 					outputWriter.write("</td>\n");
 				}
+				index++;
+
 			}
 			outputWriter.write("\t\t\t\t\t\t<tr>\n");
 		}
