@@ -64,9 +64,9 @@ class Downloader(io.IO):
 
 	def download_csv(self):
 		"""総理大臣の情報を記したCSVファイルをダウンロードする。"""
-		"""csv用のディレクトリにダウンロードしてきたcsvを保存"""
+		"""csv用のディレクトリにダウンロードしてきたcsvを保存"""			
 		print "[Downloader]csvのダウンロードを実行	"
-
+		
 		filename = os.path.join(self._csv_directory, 'PrimeMinisters.csv')
 		#print "[Downloader]filename=",
 		#print filename

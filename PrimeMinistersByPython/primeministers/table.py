@@ -18,7 +18,14 @@ class Table(object):
 
 	def __str__(self):
 		"""自分自身を文字列にして、それを応答する。"""
-		return "Table"
+		tuples_str = ''
+		for index,a_tuple in enumerate(self._tuples) :
+			if index == 0:
+				pass
+			else :
+				tuples_str = tuples_str + str(a_tuple) + '\n'
+
+		return self._kind+'table :\n'+str(self._attributes)+'\n'+tuples_str
 
 	def add(self, tuple):
 		"""タプルを追加する。"""
@@ -28,7 +35,6 @@ class Table(object):
 			self._images.append(value[keys.index('image')])
 			if self._kind == 'input':
 				self._smallImages.append(value[keys.index('thumbnail')])
-
 		self._tuples.append(tuple)
 		return
 

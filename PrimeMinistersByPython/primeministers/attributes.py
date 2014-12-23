@@ -22,7 +22,11 @@ class Attributes(object):
 
 	def __str__(self):
 		"""自分自身を文字列にして、それを応答する。"""
-		return "Attributes"
+		names_str = ''
+		for a_name in self._names :
+			names_str = names_str + a_name + ' '
+
+		return names_str
 
 	def keys(self):
 		"""キー群を応答する。"""

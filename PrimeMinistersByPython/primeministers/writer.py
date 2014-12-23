@@ -25,6 +25,7 @@ class Writer(io.IO):
 			self.write_header(a_file)
 			self.write_body(a_file)
 			self.write_footer(a_file)
+		print "[writer]index.html作成完了"
 		return
 
 	def write_body(self, file):

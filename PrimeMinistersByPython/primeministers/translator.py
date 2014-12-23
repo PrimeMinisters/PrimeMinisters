@@ -31,9 +31,8 @@ class Translator(object):
 			else:
 				end_day = datetime.date(int(a_date[3]),int(a_date[4]),int(a_date[5]))
 			period_days = end_day - start_day
-			comma_period_days =re.sub(
-				r'(\d)(?=(\d{3})+(?!\d))', '\\1,', str(period_days.days+1))
-			return comma_period_days
+
+			return re.sub(r'(\d)(?=(\d{3})+(?!\d))', '\\1,', str(period_days.days+1))
 		else:
 			return "在位日数"
 
@@ -71,8 +70,6 @@ class Translator(object):
 			html_table[index].append(values[keys.index("party")])
 			html_table[index].append(values[keys.index("birth")])
 			html_table[index].append(self.compute_string_of_image(a_tuple))
-
-		print len(html_table)
 
 		for row in html_table:
 			self._output_table.add(tuple.Tuple(self._output_table.attributes(),row))
