@@ -192,7 +192,11 @@ public class Writer extends IO
 				ArrayList<String> values = aTuple.values();
 				
 				for(String aString : values){
-					if(index % 2 == 0)
+					if(index == 0)
+					{
+						
+					}
+					else if(index % 2 == 0)
 					{
 						outputWriter.write("\t\t\t\t\t\t<td class=\"center-yellow\">");
 					}
