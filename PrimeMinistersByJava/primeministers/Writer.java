@@ -194,7 +194,7 @@ public class Writer extends IO
 				for(String aString : values){
 					if(index == 0)
 					{
-						
+						outputWriter.write("</td>\n");
 					}
 					else if(index % 2 == 0)
 					{
