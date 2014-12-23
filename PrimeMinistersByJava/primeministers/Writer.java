@@ -190,22 +190,27 @@ public class Writer extends IO
 			{
 				outputWriter.write("\t\t\t\t\t\t<tr>\n");
 				ArrayList<String> values = aTuple.values();
+				ArrayList<String> top = this.table.attributes().names();
 				
 				for(String aString : values){
-					if(index == 0)
+					
+					if(top.contains(aString) == false)
 					{
+						if(index % 2 == 0)
+						{
+							outputWriter.write("\t\t\t\t\t\t<td class=\"center-yellow\">");
+						}
+						else
+						{
+							outputWriter.write("\t\t\t\t\t\t<td class=\"center-blue\">");
+						}
+						outputWriter.write(aString);
 						outputWriter.write("</td>\n");
-					}
-					else if(index % 2 == 0)
-					{
-						outputWriter.write("\t\t\t\t\t\t<td class=\"center-yellow\">");
 					}
 					else
 					{
-						outputWriter.write("\t\t\t\t\t\t<td class=\"center-blue\">");
+						System.out.println("[Writer]:例外処理");
 					}
-					outputWriter.write(aString);
-					outputWriter.write("</td>\n");
 				}
 				index++;
 
