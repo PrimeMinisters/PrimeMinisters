@@ -32,7 +32,7 @@ public class Table extends Object
 	 */
 	Table()
 	{
-		//System.out.println("[Table]:コンストラクタ起動");
+		System.out.println("[Table]:コンストラクタ起動");
 		this.images = new ArrayList<BufferedImage>();
 		this.thumbnails = new ArrayList<BufferedImage>();
 		this.tuples = new ArrayList<Tuple>();
@@ -46,14 +46,6 @@ public class Table extends Object
 	{
 		ArrayList<String> values = aTuple.values();
 		ArrayList<String> keys = aTuple.attributes().keys();
-		// if (values.get(this.attributes.indexOfImage()) != "画像")
-		// {
-		// values.add(values.get(this.attributes.indexOfImage()));
-		// if(keys.get(this.attributes.indexOfThumbnail()))
-		// {
-		//
-		// }
-		// }
 		this.tuples.add(aTuple);
 		return;
 	}
@@ -88,6 +80,7 @@ public class Table extends Object
 	 */
 	private BufferedImage picture(String aString)
 	{
+		
 		return null;
 	}
 
@@ -105,11 +98,14 @@ public class Table extends Object
 	public String toString()
 	{
 		String tuplesString = "";
+		int index = 0;
 		for (Tuple tuple : tuples)
         {
-	        tuplesString += tuple.toString()+"\n";
+			if (index != 0)
+				tuplesString += tuple.toString()+"\n";
+	        index++;
         }
-		return tuplesString;
+		return attributes +"\n"+ tuplesString;
 	}
 
 	/**

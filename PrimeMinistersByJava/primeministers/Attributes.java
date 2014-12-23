@@ -221,7 +221,6 @@ public class Attributes extends Object
 	 */
 	ArrayList<String> names()
 	{
-		//System.out.println("[Attributes]"+this.names);
 		return this.names;
 	}
 

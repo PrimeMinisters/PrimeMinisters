@@ -41,9 +41,12 @@ public class Tuple extends Object
 	public String toString()
 	{
 		String valueString = "";
-		for (String value : values)
+		for (String aValue : values)
 		{
-			valueString += value + " ";
+			if(aValue.startsWith("<a name"))
+				valueString += "<a name=\""+this.values.get(0)+"\"...</a>";
+			else
+				valueString += aValue + " ";
 		}
 
 		return valueString;

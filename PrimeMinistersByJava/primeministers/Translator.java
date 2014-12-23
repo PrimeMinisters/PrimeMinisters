@@ -50,18 +50,15 @@ public class Translator extends Object
 		aDownloader.downloadThumbnails();
 
 		System.out.println("[Translator]Inputテーブル作成完了");
-		// System.out.println("inputTable: \n" + this.inputTable);
-		
-		
-		// ここから改変、注意
-		//-----------------------------------------
-		this.outputTable = this.table(inputTable);
+		System.out.println("inputTable: \n" + this.inputTable);
+
+		this.outputTable = this.table(this.inputTable);
+		System.out.println("[Translator]Outputテーブル作成完了");
+		System.out.println("outputTable: \n" + this.outputTable);
 		
 		Writer writer = new Writer();
 		writer.table(outputTable);
-		//---------------2014/12/23------------------
-		//System.out.println("[Translator]Outputテーブル作成完了");
-		//System.out.println("outputTable: \n" + this.outputTable);
+		
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告",
 		        JOptionPane.PLAIN_MESSAGE);
@@ -73,7 +70,6 @@ public class Translator extends Object
 	 */
 	public String computeNumberOfDays(String periodString)
 	{
-		System.out.println(periodString);
 		if (!periodString.equals("在位期間"))
 		{
 			String[] aDate = periodString.split("\\D");
