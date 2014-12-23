@@ -112,52 +112,61 @@ public class Downloader extends IO
 	 */
 	private void downloadPictures(int indexOfPicture)
 	{
-		//イメージの名前をインデックスから取得し、それらからダウンロードを行う、
 		for(Tuple aTuple : this.table().tuples())
 		{
 			String imageName = aTuple.values().get(indexOfPicture);
-			//System.out.println("[Downloader]"+imageName+"のダウンロード開始");
-
+			System.out.println("[Downloader]"+imageName+"のダウンロード開始");
+			
 			URL aURL = null;
 			BufferedImage anImage = null;
-			try
+			
+			//System.out.println(this.table.attributes().names());
+			
+			if(this.table.attributes().names().contains(imageName))
 			{
-				aURL = new URL(this.urlString()+imageName);
-
-
-				//入力用ストリーム
-				anImage = ImageIO.read(aURL);
-
-				//出力用ストリーム
-				ImageIO.write(anImage, "jpeg", new File(IO.directoryOfPages(),imageName));
-			}
-			catch(MalformedURLException e)
-			{
-				//System.out.println("エラーチェック[1]");
-				//e.printStackTrace();
-			}
-			catch(IOException e)
-			{
-				//System.out.println("エラーチェック[2]");
-				//e.printStackTrace();
-			}
-			catch(Exception e)
-			{
-				//System.out.println("エラーチェック[3]");
-				//e.printStackTrace();
-			}
-			if(indexOfPicture == aTuple.attributes().indexOfImage())
-			{
-				this.table.images().add(anImage);
 			}
 			else
 			{
-				this.table.thumbnails().add(anImage);
+				try
+				{
+					aURL = new URL(this.urlString()+imageName);
+					
+					
+					//入力用ストリーム
+					anImage = ImageIO.read(aURL);
+					
+					//出力用ストリーム
+					ImageIO.write(anImage, "jpeg", new File(IO.directoryOfPages(),imageName));
+				}
+				catch(MalformedURLException e)
+				{
+					System.out.println("エラーチェック[1]");
+					e.printStackTrace();
+				}
+				catch(IOException e)
+				{
+					System.out.println("エラーチェック[2]");
+					e.printStackTrace();
+				}
+				catch(Exception e)
+				{
+					System.out.println("エラーチェック[3]");
+					e.printStackTrace();
+				}
+				if(indexOfPicture == aTuple.attributes().indexOfImage())
+				{
+					this.table.images().add(anImage);
+				}
+				else
+				{
+					this.table.thumbnails().add(anImage);
+				}
 			}
-			//System.out.println("[Downloader]"+imageName+"のダウンロード終了");
-
+			System.out.println("[Downloader]"+imageName+"のダウンロード終了");
+			
 		}
 		return;
+
 	}
 
 	/**
