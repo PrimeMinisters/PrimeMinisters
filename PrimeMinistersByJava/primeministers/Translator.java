@@ -51,17 +51,10 @@ public class Translator extends Object
 
 		System.out.println("[Translator]Inputテーブル作成完了");
 		// System.out.println("inputTable: \n" + this.inputTable);
-		
-		
-		// ここから改変、注意
-		//-----------------------------------------
-		this.outputTable = this.table(inputTable);
-		
-		Writer writer = new Writer();
-		writer.table(outputTable);
-		//---------------2014/12/23------------------
-		//System.out.println("[Translator]Outputテーブル作成完了");
-		//System.out.println("outputTable: \n" + this.outputTable);
+
+		this.outputTable = table(this.inputTable);
+		System.out.println("[Translator]Outputテーブル作成完了");
+		System.out.println("outputTable: \n" + this.outputTable);
 
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告",
@@ -74,7 +67,7 @@ public class Translator extends Object
 	 */
 	public String computeNumberOfDays(String periodString)
 	{
-		//System.out.println(periodString);
+		System.out.println(periodString);
 		if (!periodString.equals("在位期間"))
 		{
 			String[] aDate = periodString.split("\\D");
@@ -106,7 +99,8 @@ public class Translator extends Object
 				e.printStackTrace();
 			}
 
-			String commaPeriodDays = String.valueOf(periodDays).replaceAll("(\\d)(?=(\\d{3})+(?!\\d))", "\\2,");
+			String commaPeriodDays = String.valueOf(periodDays).replaceAll(
+			        "(\\d)(?=(\\d{3})+(?!\\d))", "\\2,");
 			return commaPeriodDays;
 		}
 		else
@@ -138,10 +132,11 @@ public class Translator extends Object
 	 */
 	public Table table(Table aTable)
 	{
-		//System.out.println("[Translator]tableの起動を確認");
+		System.out.println("[Translator]tableの起動を確認");
 
 		Table htmlTable = new Table();
-		Attributes htmlAttributes = new Attributes("output");
+		htmlTable.attributes(new Attributes("output"));
+		Attributes htmlAttributes = htmlTable.attributes();
 
 		ArrayList<String> keys = aTable.attributes().keys();
 		ArrayList<Tuple> tuples = aTable.tuples();
