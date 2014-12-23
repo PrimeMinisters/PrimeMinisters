@@ -32,12 +32,6 @@ public class Writer extends IO
 	 */
 	public Attributes attributes()
 	{
-		if(this.table.attributes() == null)
-		{
-			System.out.println("ばーか");
-		}
-		System.out.println("[writer]:table"+this.table.attributes());
-		
 		return this.table.attributes();
 	}
 	
@@ -86,10 +80,10 @@ public class Writer extends IO
 	 */
 	public void writeAttributesOn(BufferedWriter outputWriter)
 	{
-		System.out.println("[writer]:デバック[1]");
+		//System.out.println("[writer]:デバック[1]");
 		ArrayList<String> strings = null;
 		strings = attributes().names();
-		System.out.println("[Writer]:attributesName:"+strings);
+		//System.out.println("[Writer]:attributesName:"+strings);
         try
         {
         	outputWriter.write("\t\t\t\t\t\t<tr>\n");

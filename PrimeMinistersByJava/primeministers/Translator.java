@@ -51,11 +51,17 @@ public class Translator extends Object
 
 		System.out.println("[Translator]Inputテーブル作成完了");
 		// System.out.println("inputTable: \n" + this.inputTable);
-
-		this.outputTable = table(this.inputTable);
-		System.out.println("[Translator]Outputテーブル作成完了");
-		System.out.println("outputTable: \n" + this.outputTable);
-
+		
+		
+		// ここから改変、注意
+		//-----------------------------------------
+		this.outputTable = this.table(inputTable);
+		
+		Writer writer = new Writer();
+		writer.table(outputTable);
+		//---------------2014/12/23------------------
+		//System.out.println("[Translator]Outputテーブル作成完了");
+		//System.out.println("outputTable: \n" + this.outputTable);
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告",
 		        JOptionPane.PLAIN_MESSAGE);
