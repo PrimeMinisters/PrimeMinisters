@@ -19,7 +19,7 @@ public class Reader extends IO
 	public Reader()
 	{
 		this.filename = new File(IO.directoryOfPages(),"PrimeMinisters.csv");
-		System.out.println("[Reader]ファイルネーム確認 \"" + filename + "\"");
+		//System.out.println("[Reader]ファイルネーム確認 \"" + filename + "\"");
 
 		return;
 	}
@@ -45,12 +45,12 @@ public class Reader extends IO
 	 */
 	public Table table()
 	{
-		System.out.println("[Reader]tableの起動を確認");
+		//System.out.println("[Reader]tableの起動を確認");
 		Table csvTable = new Table();
 		csvTable.attributes(new Attributes("input"));
 
 		ArrayList<String> reader = readTextFromFile(this.filename);
-		System.out.println("[Reader]該当ファイルを行文字列リストに変換完了");
+		//System.out.println("[Reader]該当ファイルを行文字列リストに変換完了");
 
 		for (String row : reader)
 		{

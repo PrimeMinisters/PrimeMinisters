@@ -32,7 +32,7 @@ public class Table extends Object
 	 */
 	Table()
 	{
-		System.out.println("[Table]:コンストラクタ起動");
+		//System.out.println("[Table]:コンストラクタ起動");
 		this.images = new ArrayList<BufferedImage>();
 		this.thumbnails = new ArrayList<BufferedImage>();
 		this.tuples = new ArrayList<Tuple>();

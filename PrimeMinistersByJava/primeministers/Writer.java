@@ -6,6 +6,16 @@ import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Date;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.FileNotFoundException;
+
+
+
+
 /**
  * ライタ：総理大臣の情報のテーブルをHTMLページとして書き出す。
  */
@@ -33,6 +43,30 @@ public class Writer extends IO
 	 */
 	public Table table(Table aTable)
 	{
+		this.table = aTable;
+		BufferedWriter htmlWriter;
+		File aFile = IO.directoryOfPages();
+		aFile = new File(aFile.getPath() + File.separator + "index.html");
+		try
+		{
+			htmlWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(aFile),IO.encodingSymbol()));
+			this.writeHeaderOn(htmlWriter);
+			this.writeTableBodyOn(htmlWriter);
+			this.writeFooterOn(htmlWriter);
+			htmlWriter.close();
+		}
+		catch (UnsupportedEncodingException e)
+		{
+			e.printStackTrace();
+		}
+		catch (FileNotFoundException  e)
+		{
+			e.printStackTrace();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		return null;
 	}
 

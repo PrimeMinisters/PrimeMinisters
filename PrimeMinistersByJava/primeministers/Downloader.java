@@ -29,7 +29,7 @@ public class Downloader extends IO
 	public Downloader()
 	{
 		this.url = this.urlString();
-		System.out.println("[Downloader]URL:"+this.url);
+		//System.out.println("[Downloader]URL:"+this.url);
 
 		return;
 	}
@@ -47,7 +47,7 @@ public class Downloader extends IO
 			 InputStream input = url.openStream();
 
 			 //出力用ストリーム
-			 System.out.println("[Downloader]:ディレクトリチェック="+IO.directoryOfPages());
+			 //System.out.println("[Downloader]:ディレクトリチェック="+IO.directoryOfPages());
 			 OutputStream output = new FileOutputStream(new File(IO.directoryOfPages(),"PrimeMinisters.csv"));
 
 			 try {
@@ -68,17 +68,17 @@ public class Downloader extends IO
 	    }
 		catch(MalformedURLException e)
 		{
-			System.out.println("エラーチェック[1]");
+			//System.out.println("エラーチェック[1]");
 			e.printStackTrace();
 		}
 		catch(IOException e)
 		{
-			System.out.println("エラーチェック[2]");
+			//System.out.println("エラーチェック[2]");
 			e.printStackTrace();
 		}
 		catch(Exception e)
 		{
-			System.out.println("エラーチェック[3]");
+			//System.out.println("エラーチェック[3]");
 			e.printStackTrace();
 		}
 		return;
@@ -94,12 +94,12 @@ public class Downloader extends IO
 		if(aFile.exists() == false)
 		{
 			aFile.mkdir();
-			System.out.println("[Downloader]:imageディレクトリを作成");
+			//System.out.println("[Downloader]:imageディレクトリを作成");
 		}
 
 		int index = this.table.attributes().indexOfImage();
 
-		System.out.println("[Downloader]:image=index:"+index);
+		//System.out.println("[Downloader]:image=index:"+index);
 
 		this.downloadPictures(index);
 
@@ -116,7 +116,7 @@ public class Downloader extends IO
 		for(Tuple aTuple : this.table().tuples())
 		{
 			String imageName = aTuple.values().get(indexOfPicture);
-			System.out.println("[Downloader]"+imageName+"のダウンロード開始");
+			//System.out.println("[Downloader]"+imageName+"のダウンロード開始");
 
 			URL aURL = null;
 			BufferedImage anImage = null;
@@ -133,18 +133,18 @@ public class Downloader extends IO
 			}
 			catch(MalformedURLException e)
 			{
-				System.out.println("エラーチェック[1]");
-				e.printStackTrace();
+				//System.out.println("エラーチェック[1]");
+				//e.printStackTrace();
 			}
 			catch(IOException e)
 			{
-				System.out.println("エラーチェック[2]");
-				e.printStackTrace();
+				//System.out.println("エラーチェック[2]");
+				//e.printStackTrace();
 			}
 			catch(Exception e)
 			{
-				System.out.println("エラーチェック[3]");
-				e.printStackTrace();
+				//System.out.println("エラーチェック[3]");
+				//e.printStackTrace();
 			}
 			if(indexOfPicture == aTuple.attributes().indexOfImage())
 			{
@@ -154,7 +154,7 @@ public class Downloader extends IO
 			{
 				this.table.thumbnails().add(anImage);
 			}
-			System.out.println("[Downloader]"+imageName+"のダウンロード終了");
+			//System.out.println("[Downloader]"+imageName+"のダウンロード終了");
 
 		}
 		return;
@@ -170,12 +170,12 @@ public class Downloader extends IO
 		if(aFile.exists() == false)
 		{
 			aFile.mkdir();
-			System.out.println("[Downloader]:Thumbnailsディレクトリを作成");
+			//System.out.println("[Downloader]:Thumbnailsディレクトリを作成");
 		}
 
 		int index = this.table.attributes().indexOfThumbnail();
 
-		System.out.println("[Downloader]:Thumbnails=index:"+index);
+		//System.out.println("[Downloader]:Thumbnails=index:"+index);
 
 		this.downloadPictures(index);
 

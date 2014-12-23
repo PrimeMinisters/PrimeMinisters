@@ -72,7 +72,7 @@ public abstract class IO extends Object
 	 */
 	public static String encodingSymbol()
 	{
-		return null;
+		return "UTF-8";
 	}
 
 	/**
