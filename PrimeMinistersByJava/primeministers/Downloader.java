@@ -11,6 +11,7 @@ import java.net.MalformedURLException;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 
 
 /**
@@ -112,18 +113,20 @@ public class Downloader extends IO
 	 */
 	private void downloadPictures(int indexOfPicture)
 	{
+		String[] top = {"画像","縮小画像"};
 		for(Tuple aTuple : this.table().tuples())
 		{
 			String imageName = aTuple.values().get(indexOfPicture);
 			System.out.println("[Downloader]"+imageName+"のダウンロード開始");
-			
+		
 			URL aURL = null;
 			BufferedImage anImage = null;
 			
-			//System.out.println(this.table.attributes().names());
+			//System.out.println("ImageName="+imageName);
 			
-			if(this.table.attributes().names().contains(imageName))
+			if(Arrays.asList(top).contains(imageName))
 			{
+				System.out.println("[Downloader]"+imageName+"は例外");
 			}
 			else
 			{
@@ -161,8 +164,8 @@ public class Downloader extends IO
 				{
 					this.table.thumbnails().add(anImage);
 				}
+				System.out.println("[Downloader]"+imageName+"のダウンロード終了");
 			}
-			System.out.println("[Downloader]"+imageName+"のダウンロード終了");
 			
 		}
 		return;
