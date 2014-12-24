@@ -67,7 +67,7 @@ public abstract class IO extends Object
 			}
 			else
 			{
-				System.out.println("[IO]ディレクトリ作成に失敗");
+				System.out.println("[IO]ディレクトリが存在していました。");
 			}
 
 		}

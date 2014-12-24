@@ -46,7 +46,6 @@ public class Translator extends Object
 		aDownloader.downloadCSV();
 
 		this.inputTable = aDownloader.table();
-		// System.out.println("inputTable: \n"+inputTable);
 
 		aDownloader.downloadImages();
 		aDownloader.downloadThumbnails();
@@ -150,8 +149,6 @@ public class Translator extends Object
 	 */
 	public Table table(Table aTable)
 	{
-		System.out.println("[Translator]tableの起動を確認");
-
 		Table htmlTable = new Table();
 		htmlTable.attributes(new Attributes("output"));
 		Attributes htmlAttributes = htmlTable.attributes();
