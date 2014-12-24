@@ -7,6 +7,8 @@ public class Example extends Object
 {
 	/**
 	 * 総理大臣のCSVファイルをHTMLページへと変換するメインプログラム。
+	 *
+	 * @param arguments コマンドライン引数
 	 */
 	public static void main(String[] arguments)
 	{
