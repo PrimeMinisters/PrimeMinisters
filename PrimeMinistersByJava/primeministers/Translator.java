@@ -9,17 +9,19 @@ import java.util.Date;
 
 /**
  * トランスレータ：総理大臣のCSVファイルをHTMLページへと変換するプログラム。
+ * 
+ * @author ueda
  */
 public class Translator extends Object
 {
 
 	/**
-	 * CSVに由来するテーブルを記憶するフィールド
+	 * CSVに由来するテーブルを記憶するフィールド。
 	 */
 	private Table inputTable;
 
 	/**
-	 * HTMLに由来するテーブルを記憶するフィールド
+	 * HTMLに由来するテーブルを記憶するフィールド。
 	 */
 	private Table outputTable;
 
@@ -55,10 +57,10 @@ public class Translator extends Object
 		this.outputTable = this.table(this.inputTable);
 		System.out.println("[Translator]Outputテーブル作成完了");
 		System.out.println("outputTable: \n" + this.outputTable);
-		
+
 		Writer writer = new Writer();
 		writer.table(outputTable);
-		
+
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告",
 		        JOptionPane.PLAIN_MESSAGE);
@@ -67,6 +69,10 @@ public class Translator extends Object
 
 	/**
 	 * 在位日数を計算して、それを文字列にして応答する。
+	 * 
+	 * @param periodString
+	 *            在位期間の文字列。
+	 * @return 在位日数文字列。
 	 */
 	public String computeNumberOfDays(String periodString)
 	{
@@ -113,6 +119,12 @@ public class Translator extends Object
 
 	/**
 	 * サムネイルが画像から画像へ飛ぶためのHTML文字列を作成して、それを応答する。
+	 * 
+	 * @param periodString
+	 *            指定タプルの画像欄にある文字列。
+	 * @param aTuple
+	 *            タプルを保持するフィールド。
+	 * @return HTML文字列。
 	 */
 	public String computeNumberOfImage(String periodString, Tuple aTuple)
 	{
@@ -131,6 +143,10 @@ public class Translator extends Object
 
 	/**
 	 * 総理大臣のCSVファイルを基にしたテーブルから、HTMLページを基にするテーブルに変換して、それを応答する。
+	 * 
+	 * @param aTable
+	 *            テーブルを保持するフィールド。
+	 * @return HTML由来のテーブル。
 	 */
 	public Table table(Table aTable)
 	{

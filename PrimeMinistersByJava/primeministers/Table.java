@@ -2,13 +2,16 @@ package primeministers;
 
 import java.util.ArrayList;
 import java.awt.image.BufferedImage;
+
 /**
  * 表：総理大臣の情報テーブル。
+ * 
+ * @author isobe ueda
  */
 public class Table extends Object
 {
 	/**
-	 * 属性リストを記憶するフィールド
+	 * 属性リストを記憶するフィールド。
 	 */
 	private Attributes attributes;
 
@@ -28,11 +31,10 @@ public class Table extends Object
 	private ArrayList<Tuple> tuples;
 
 	/**
-	 * テーブルのコンストラクタ
+	 * テーブルのコンストラクタ。
 	 */
 	Table()
 	{
-		System.out.println("[Table]:コンストラクタ起動");
 		this.images = new ArrayList<BufferedImage>();
 		this.thumbnails = new ArrayList<BufferedImage>();
 		this.tuples = new ArrayList<Tuple>();
@@ -41,17 +43,20 @@ public class Table extends Object
 
 	/**
 	 * タプルを追加する。
+	 * 
+	 * @param aTuple
+	 *            タプルを保持するフィールド。
 	 */
 	void add(Tuple aTuple)
 	{
-		ArrayList<String> values = aTuple.values();
-		ArrayList<String> keys = aTuple.attributes().keys();
 		this.tuples.add(aTuple);
 		return;
 	}
 
 	/**
 	 * 属性リストを応答する。
+	 * 
+	 * @return 属性リストを保持するフィールド。
 	 */
 	Attributes attributes()
 	{
@@ -60,6 +65,9 @@ public class Table extends Object
 
 	/**
 	 * 属性リストを設定する。
+	 * 
+	 * @param instanceOfAttributes
+	 *            属性リストの値群。
 	 */
 	void attributes(Attributes instanceOfAttributes)
 	{
@@ -69,6 +77,8 @@ public class Table extends Object
 
 	/**
 	 * 画像群を応答する。
+	 * 
+	 * @return 画像群を記憶するフィールド。
 	 */
 	ArrayList<BufferedImage> images()
 	{
@@ -76,16 +86,9 @@ public class Table extends Object
 	}
 
 	/**
-	 * 画像またはサムネイル画像の文字列を受け取って当該画像を応答する。
-	 */
-	private BufferedImage picture(String aString)
-	{
-		
-		return null;
-	}
-
-	/**
 	 * サムネイル画像群を応答する。
+	 * 
+	 * @return サムネイル画像群を記憶するフィールド。
 	 */
 	ArrayList<BufferedImage> thumbnails()
 	{
@@ -94,22 +97,27 @@ public class Table extends Object
 
 	/**
 	 * 自分自身を文字列にして。それを反応する。
+	 * 
+	 * @return このテーブルが保持している属性リストとタプル群の文字列
 	 */
+	@Override
 	public String toString()
 	{
 		String tuplesString = "";
 		int index = 0;
 		for (Tuple tuple : tuples)
-        {
+		{
 			if (index != 0)
-				tuplesString += tuple.toString()+"\n";
-	        index++;
-        }
-		return attributes +"\n"+ tuplesString;
+				tuplesString += tuple.toString() + "\n";
+			index++;
+		}
+		return attributes + "\n" + tuplesString;
 	}
 
 	/**
 	 * ダプル群を応答する。
+	 * 
+	 * @return タプル群を記憶するフィールド。
 	 */
 	ArrayList<Tuple> tuples()
 	{

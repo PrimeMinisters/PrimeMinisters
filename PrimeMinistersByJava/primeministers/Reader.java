@@ -5,27 +5,30 @@ import java.util.ArrayList;
 
 /**
  * リーダ：総理大臣の情報を記したCSVファイルを読み込んでテーブルに仕立て上げる。
+ * 
+ * @author isobe ueda
  */
 public class Reader extends IO
 {
 	/**
-	 * 総理大臣の情報を記したCSVファイルを記憶するフィールド
+	 * 総理大臣の情報を記したCSVファイルを記憶するフィールド。
 	 */
 	private File filename;
 
 	/**
-	 * リーダのコンストラクタ
+	 * リーダのコンストラクタ。
 	 */
 	public Reader()
 	{
-		this.filename = new File(IO.directoryOfPages(),"PrimeMinisters.csv");
-		System.out.println("[Reader]ファイルネーム確認 \"" + filename + "\"");
+		this.filename = new File(IO.directoryOfPages(), "PrimeMinisters.csv");
 
 		return;
 	}
 
 	/**
-	 * ダウンロードしたCSVファイルを応答
+	 * ダウンロードしたCSVファイルを応答。
+	 * 
+	 * @return 総理大臣の情報を記したCSVファイルを記憶するフィールド。
 	 */
 	public File filename()
 	{
@@ -33,30 +36,24 @@ public class Reader extends IO
 	}
 
 	/**
-	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメゾット
-	 */
-	public/* static */File filenameOfCSV()
-	{
-		return this.filename;
-	}
-
-	/**
 	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
+	 * 
+	 * @return テーブルを保持するフィールド。
 	 */
+	@Override
 	public Table table()
 	{
-		System.out.println("[Reader]tableの起動を確認");
-		Table csvTable = new Table();
-		csvTable.attributes(new Attributes("input"));
+		this.table = new Table();
+		this.table.attributes(new Attributes("input"));
 
 		ArrayList<String> reader = readTextFromFile(this.filename);
-		System.out.println("[Reader]該当ファイルを行文字列リストに変換完了");
 
 		for (String row : reader)
 		{
-			csvTable.add(new Tuple(csvTable.attributes(), splitString(row, ",")));
+			this.table.add(new Tuple(this.table.attributes(), splitString(row,
+			        ",")));
 		}
 
-		return csvTable;
+		return this.table;
 	}
 }

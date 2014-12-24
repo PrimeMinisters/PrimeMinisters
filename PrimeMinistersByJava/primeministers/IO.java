@@ -10,6 +10,8 @@ import java.net.URL;
 
 /**
  * 入出力：リーダ・ダウンローダ・ライタを抽象する。
+ * 
+ * @author isobe ueda
  */
 public abstract class IO extends Object
 {
@@ -27,7 +29,10 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * ファイルやディレクトリを削除するクラスメゾット
+	 * ファイルやディレクトリを削除するクラスメソッド。
+	 * 
+	 * @param aFile
+	 *            ファイルを保持するフィールド。
 	 */
 	public static void deleteFileOrDirectory(File aFile)
 	{
@@ -45,7 +50,9 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 総理大臣ページのためのディレクトリ(存在しなければ作成して)を応答するクラスメゾット
+	 * 総理大臣ページのためのディレクトリ(存在しなければ作成して)を応答するクラスメソッド。
+	 * 
+	 * @return ディレクトリファイルを保持するフィールド。
 	 */
 	public static File directoryOfPages()
 	{
@@ -68,7 +75,9 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 入出力する際の文字コードを応答するクラスメゾット
+	 * 入出力する際の文字コードを応答するクラスメソッド。
+	 * 
+	 * @return 入出力する際の文字コードの文字列。
 	 */
 	public static String encodingSymbol()
 	{
@@ -76,7 +85,11 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 指定されたファイルからテキストを読みこんで、それを行リストにして応答するクラスメゾット。
+	 * 指定されたファイルからテキストを読みこんで、それを行リストにして応答するクラスメソッド。
+	 * 
+	 * @param aFile
+	 *            ファイルを保持するフィールド。
+	 * @return 行リストを保持するフィールド。
 	 */
 	public static ArrayList<String> readTextFromFile(File aFile)
 	{
@@ -105,7 +118,11 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 指定されたファイル文字列からテキストを読み込んで、それを行リストにして応答するクラスメゾット
+	 * 指定されたファイル文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+	 * 
+	 * @param fileString
+	 *            指定するファイル文字列。
+	 * @return 行リストを保持するフィールド。
 	 */
 	public static ArrayList<String> readTextFromFile(String fileString)
 	{
@@ -115,7 +132,11 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメゾット
+	 * 指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+	 * 
+	 * @param aURL
+	 *            指定するURL。
+	 * @return 行リストを保持するフィールド。
 	 */
 	public static ArrayList<String> readTextFromURL(URL aURL)
 	{
@@ -123,7 +144,11 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 指定されたURL文字列からテキストを読み込んで、それを行リストにして応答するクラスメゾット
+	 * 指定されたURL文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+	 * 
+	 * @param urlString
+	 *            指定するURL文字列。
+	 * @return 行リストを保持するフィールド。
 	 */
 	public static ArrayList<String> readTextFromURL(String urlString)
 	{
@@ -131,7 +156,13 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 文字列をセパレータで分割したトークン列を応答するクラスメゾット
+	 * 文字列をセパレータで分割したトークン列を応答するクラスメソッド。
+	 * 
+	 * @param string
+	 *            分割する文字列
+	 * @param separators
+	 *            文字列を分割するセパレータ
+	 * @return トークン列を保持するフィールド。
 	 */
 	public static ArrayList<String> splitString(String string, String separators)
 	{
@@ -147,6 +178,8 @@ public abstract class IO extends Object
 
 	/**
 	 * テーブルを応答する。
+	 * 
+	 * @return 変換したテーブル。
 	 */
 	public Table table()
 	{
@@ -154,7 +187,24 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 指定された行リストを、指定されたファイルに書き出すクラスメゾット
+	 * テーブルを応答する。
+	 * 
+	 * @param aTable
+	 *            テーブルを保持するフィールド。
+	 * @return 変換したテーブル。
+	 */
+	public Table table(Table aTable)
+	{
+		return this.table;
+	}
+
+	/**
+	 * 指定された行リストを、指定されたファイルに書き出すクラスメソッド。
+	 * 
+	 * @param aCollection
+	 *            指定する行リスト。
+	 * @param aFile
+	 *            指定するファイル。
 	 */
 	public static void writeText(ArrayList<String> aCollection, File aFile)
 	{
@@ -162,7 +212,12 @@ public abstract class IO extends Object
 	}
 
 	/**
-	 * 指定された行リストを、指定されたファイル名のファイルに書き出すクラスメゾット
+	 * 指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド。
+	 * 
+	 * @param aCollection
+	 *            指定する行リスト。
+	 * @param fileString
+	 *            指定するファイル名。
 	 */
 	public static void writeText(ArrayList<String> aCollection,
 	        String fileString)

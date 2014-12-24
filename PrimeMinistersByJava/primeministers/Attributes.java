@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  * 属性群：総理大臣の情報テーブルを入出力する際の属性情報を記憶。
+ * 
+ * @author isobe ueda
  */
 public class Attributes extends Object
 {
@@ -14,12 +16,15 @@ public class Attributes extends Object
 	private ArrayList<String> keys;
 
 	/**
-	 * 属性リストの名前群を記憶するフィールド
+	 * 属性リストの名前群を記憶するフィールド。
 	 */
 	private ArrayList<String> names;
 
 	/**
 	 * 入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。
+	 * 
+	 * @param aString
+	 *            入力用または出力用を表す文字列。
 	 */
 	Attributes(String aString)
 	{
@@ -86,6 +91,10 @@ public class Attributes extends Object
 
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。名前がないときはキーを応答する。
+	 * 
+	 * @param index
+	 *            インデックス番号。
+	 * @return 指定されたインデックスに対応する名前又はキー。
 	 */
 	protected String at(int index)
 	{
@@ -106,6 +115,10 @@ public class Attributes extends Object
 
 	/**
 	 * 指定されたキー文字列のインデックスを応答する。
+	 * 
+	 * @param aString
+	 *            指定するキー文字列。
+	 * @return 指定されたキー文字列のインデックス。
 	 */
 	private int indexOf(String aString)
 	{
@@ -113,87 +126,111 @@ public class Attributes extends Object
 	}
 
 	/**
-	 * 在位日数のインデックスを応答する
+	 * 在位日数のインデックスを応答する。
+	 * 
+	 * @return 在位日数のインデックス。
 	 */
 	int indexOfDays()
 	{
-        return this.names.indexOf(nameAt(this.indexOf("day")));
+		return this.names.indexOf(nameAt(this.indexOf("day")));
 	}
 
 	/**
 	 * 画像のインデックスを応答する。
+	 * 
+	 * @return 画像のインデックス。
 	 */
-    int indexOfImage()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("image")));
-    }
+	int indexOfImage()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("image")));
+	}
 
-    /**
-     * ふりがなのインデックスを応答する。
-     */
-    int indexOfkana()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("kana")));
-    }
+	/**
+	 * ふりがなのインデックスを応答する。
+	 * 
+	 * @return ふりがなのインデックス。
+	 */
+	int indexOfkana()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("kana")));
+	}
 
-    /**
-     * 氏名のインデックスを応答する。
-     */
-    int indexOfName()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("names")));
-    }
+	/**
+	 * 氏名のインデックスを応答する。
+	 * 
+	 * @return 氏名のインデックス。
+	 */
+	int indexOfName()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("names")));
+	}
 
-    /**
-     * 番号のインデックスを応答する。
-     */
-    int indexOfNo()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("no")));
-    }
+	/**
+	 * 番号のインデックスを応答する。
+	 * 
+	 * @return 番号のインデックス。
+	 */
+	int indexOfNo()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("no")));
+	}
 
-    /**
-     * 代のインデックスを応答する。
-     */
-    int indexOfOrder()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("order")));
-    }
+	/**
+	 * 代のインデックスを応答する。
+	 * 
+	 * @return 代のインデックス。
+	 */
+	int indexOfOrder()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("order")));
+	}
 
-    /**
-     * 政党のインデックスを応答する。
-     */
-    int indexOfParty()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("party")));
-    }
+	/**
+	 * 政党のインデックスを応答する。
+	 * 
+	 * @return 政党のインデックス。
+	 */
+	int indexOfParty()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("party")));
+	}
 
-    /**
-     * 在位期間のインデックスを応答する。
-     */
-    int indexOfPeriod()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("period")));
-    }
+	/**
+	 * 在位期間のインデックスを応答する。
+	 * 
+	 * @return 在位期間のインデックス。
+	 */
+	int indexOfPeriod()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("period")));
+	}
 
-    /**
-     * 出身地のインデックスを応答する。
-     */
-    int indexOfPlace()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("birth")));
-    }
+	/**
+	 * 出身地のインデックスを応答する。
+	 * 
+	 * @return 出身地のインデックス。
+	 */
+	int indexOfPlace()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("birth")));
+	}
 
-    /**
-     * サムネイル画像のインデックスを応答する。
-     */
-    int indexOfThumbnail()
-    {
-        return this.names.indexOf(nameAt(this.indexOf("thumbnail")));
-    }
+	/**
+	 * サムネイル画像のインデックスを応答する。
+	 * 
+	 * @return サムネイル画像のインデックス。
+	 */
+	int indexOfThumbnail()
+	{
+		return this.names.indexOf(nameAt(this.indexOf("thumbnail")));
+	}
 
 	/**
 	 * 指定されたインデックスに対応するキーを応答する。
+	 * 
+	 * @param index
+	 *            指定するインデックス。
+	 * @return 指定されたインデックスに対応するキー。
 	 */
 	protected String keyAt(int index)
 	{
@@ -201,7 +238,9 @@ public class Attributes extends Object
 	}
 
 	/**
-	 * キー郡を応答する。
+	 * キー群を応答する。
+	 * 
+	 * @return キー群を保持するフィールド。
 	 */
 	ArrayList<String> keys()
 	{
@@ -210,6 +249,10 @@ public class Attributes extends Object
 
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。
+	 * 
+	 * @param index
+	 *            指定するインデックス。
+	 * @return 指定されたインデックスに対応する
 	 */
 	protected String nameAt(int index)
 	{
@@ -218,6 +261,8 @@ public class Attributes extends Object
 
 	/**
 	 * 名前群を応答する。
+	 * 
+	 * @return 名前群を保持するフィールド。
 	 */
 	ArrayList<String> names()
 	{
@@ -226,6 +271,9 @@ public class Attributes extends Object
 
 	/**
 	 * 名前郡を設定する。
+	 * 
+	 * @param aCollection
+	 *            文字列群を保持するリスト。
 	 */
 	void names(ArrayList<String> aCollection)
 	{
@@ -235,6 +283,8 @@ public class Attributes extends Object
 
 	/**
 	 * 属性リストの長さを応答する。
+	 * 
+	 * @return 属性リストの長さ。
 	 */
 	int size()
 	{
@@ -243,15 +293,18 @@ public class Attributes extends Object
 
 	/**
 	 * 自身を文字列にして、それを応答する。
+	 * 
+	 * @return 名前群の文字列。
 	 */
+	@Override
 	public String toString()
 	{
 		String nameString = "";
 		for (String name : names)
-        {
-	        nameString += name+" ";
-        }
-		
+		{
+			nameString += name + " ";
+		}
+
 		return nameString;
 	}
 }
