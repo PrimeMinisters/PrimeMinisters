@@ -15,7 +15,7 @@ class Example(object):
 		"""総理大臣のCSVファイルをHTMLページへと変換するメインプログラム。"""
 
 		# ホームディレクトリの直下のデスクトップのディレクトリに、
-		# PrimeMinistersというディレクトリを作成する。
+		# SouriDaijinというディレクトリを作成する。
 		# すでに存在すれば、当該ディレクトリを消して、新たに作り、
 		# 存在しなければ、当該ディレクトリを作成する。
 
@@ -26,7 +26,7 @@ class Example(object):
 		#print home_directory
 
 		print "[example]ベースディレクトリを指定:",
-		base_directory = home_directory + '/Desktop/PrimeMinisters/'
+		base_directory = home_directory + '/Desktop/SouriDaijin/'
 		print base_directory
 
 		if os.path.isdir(base_directory):
