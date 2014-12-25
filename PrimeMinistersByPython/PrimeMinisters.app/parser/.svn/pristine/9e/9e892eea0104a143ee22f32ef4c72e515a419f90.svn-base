@@ -1,9 +1,0 @@
-/*** Simple Program ***/
-
-int	abc;
-float	def;
-
-abc = 3 + 4 * 5;
-def = 3.1415926;
-print abc;
-print def;
