@@ -5,7 +5,7 @@ PACKAGE	= primeministers
 INSTDIR	= PrimeMinisters.app/Contents/Resources/Python/
 
 all:
-	rm -rf ~/Desktop/SouriDaijin
+	rm -rf ~/Desktop/PrimeMinisters
 
 clean:
 	@for each in ${PYCS} ; do echo "rm -f $${each}" ; rm -f $${each} ; done
@@ -13,7 +13,7 @@ clean:
 
 test:
 	python ${TARGET}
-	@open ~/Desktop/SouriDaijin/index.html
+	@open ~/Desktop/PrimeMinisters/index.html
 
 install:
 	if [ ! -e $(INSTDIR) ] ; then mkdir $(INSTDIR) ; fi

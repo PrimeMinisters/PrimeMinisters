@@ -57,7 +57,7 @@ public abstract class IO extends Object
 	public static File directoryOfPages()
 	{
 		String homeDirectory = System.getProperty("user.home");
-		File aDirectory = new File(homeDirectory + "/Desktop/SouriDaijin/");
+		File aDirectory = new File(homeDirectory + "/Desktop/PrimeMinisters/");
 		if (!aDirectory.exists())
 		{
 
